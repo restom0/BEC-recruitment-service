@@ -1,0 +1,44 @@
+server:
+  port: ${SERVER_PORT:9191}
+
+spring:
+  application:
+    name: recruitment-service
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://127.0.0.1:3306/job_db}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:Admin@123}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:com.mysql.cj.jdbc.Driver}
+  jpa:
+    database-platform: ${SPRING_JPA_DATABASE_PLATFORM:org.hibernate.dialect.MySQLDialect}
+    open-in-view: false
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    properties:
+      hibernate:
+        auto_quote_keyword: true
+    show-sql: ${SPRING_JPA_SHOW_SQL:false}
+  cache:
+    type: ${SPRING_CACHE_TYPE:simple}
+    redis:
+      time-to-live: ${SPRING_CACHE_REDIS_TTL:PT2M}
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:localhost}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+      password: ${SPRING_DATA_REDIS_PASSWORD:Redis@123}
+
+logging:
+  level:
+    vn.unigap.common.exception.ApiExceptionHandler: ${LOG_LEVEL_API_EXCEPTION_HANDLER:INFO}
+    vn.unigap.api.controller.AuthController: ${LOG_LEVEL_AUTH_CONTROLLER:INFO}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+
+sentry:
+  dsn: ${SENTRY_DSN:}
+  traces-sample-rate: ${SENTRY_TRACES_SAMPLE_RATE:0.0}
