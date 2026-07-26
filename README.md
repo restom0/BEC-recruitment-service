@@ -2,7 +2,7 @@
 
 # Recruitment Service
 
-Spring Boot recruitment API based on [`lppduy/recruitment-service`](https://github.com/lppduy/recruitment-service/tree/main), completed here with the full domain modules and GitHub Packages publishing.
+Spring Boot recruitment API for employers, jobs, seekers, resumes, authentication, metrics, and GitHub Packages publishing.
 
 ## Features
 
@@ -129,7 +129,7 @@ Package repository:
 </repository>
 ```
 
-Publishing is handled by `.github/workflows/publish-package.yml` on GitHub release creation or manual workflow dispatch. The workflow uses `GITHUB_TOKEN` with `packages: write`; consumers of private packages need a GitHub token with `read:packages`.
+Publishing is handled by `.github/workflows/publish-package.yml` on pushes to `main`, GitHub release creation, or manual workflow dispatch. The workflow uses `GITHUB_TOKEN` with `packages: write`; consumers of private packages need a GitHub token with `read:packages`.
 
 ## Project Structure
 

@@ -1,6 +1,8 @@
 name: Publish Maven Package
 
 on:
+  push:
+    branches: [main]
   release:
     types: [created]
   workflow_dispatch:
